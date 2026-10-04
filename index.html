@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web mai Chart - 資料遷移提取器</title>
+    <title>Web mai Chart X 遷移工具</title>
     <style>
         :root {
             --bg-color: #1f1f1f;
@@ -300,12 +301,12 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- 標頭 -->
         <header class="header">
-            <h1>Web mai Chart - 資料遷移提取器</h1>
-            <p>本工具用於從本機 IndexedDB (SimaiEditorDB) 提取舊版使用者設定與各專案素材，並封裝成標準 wmcx_output.zip 壓縮檔。</p>
+            <h1>Web mai Chart X 遷移工具</h1>
         </header>
 
         <!-- 概況卡片 -->
@@ -360,7 +361,8 @@
             </div>
 
             <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
-                點擊按鈕將組裝 <code>wmcx_output/settings.json</code> 與各專案子目錄檔案（<code>maidata.txt</code>、<code>bg.*</code>、<code>track.*</code>、<code>pv.*</code>），並透過 JSZip 打包為 ZIP 檔案下載。
+                點擊下方按鈕將<code>wmcx_output/settings.json</code>
+                與各專案（<code>maidata.txt</code>、<code>bg.*</code>、<code>track.*</code>、<code>pv.*</code>）打包為壓縮檔提供下載。
             </p>
 
             <div id="progressArea" class="progress-box">
@@ -374,16 +376,13 @@
             </div>
 
             <div id="msgSuccess" class="message-box success">
-                壓縮檔已打包完成並開始下載！您可以妥善保存此檔案，或前往新站進行匯入。
+                壓縮檔已打包完成並開始下載！您可以妥善保存此檔案，或回到新站進行匯入。
             </div>
 
             <div class="btn-group">
                 <button id="btnExport" class="btn btn-primary" disabled>
-                    開始打包下載 (wmcx_output.zip)
+                    開始打包下載
                 </button>
-                <a id="btnLinkNewSite" class="btn btn-secondary" href="https://chart.tri-dent.cc" target="_blank" rel="noopener noreferrer">
-                    前往新站
-                </a>
             </div>
         </section>
     </div>
@@ -548,7 +547,7 @@
 
                 msgSuccess.style.display = 'block';
                 btnExport.disabled = false;
-                btnExport.textContent = '重新下載 (wmcx_output.zip)';
+                btnExport.textContent = '重新下載';
             } catch (err) {
                 console.error('[Extractor] 打包失敗:', err);
                 alert(`打包失敗: ${err.message || err}`);
@@ -559,4 +558,5 @@
         runExtraction();
     </script>
 </body>
+
 </html>
